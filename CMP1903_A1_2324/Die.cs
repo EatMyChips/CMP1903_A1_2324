@@ -15,9 +15,21 @@ namespace CMP1903_A1_2324
 
         //Property
 
+        public int DiceRoll {get; private set;}
+
+        Testing test = new Testing();
 
         //Method
 
+        public int roll()
+        {
+            Random rand = new Random();
+            DiceRoll = rand.Next(1, 7);
+            test.testDiceRoll(DiceRoll);
+            Console.WriteLine("This roll gave: " + DiceRoll);
+
+            return DiceRoll;
+        }
 
     }
 }
