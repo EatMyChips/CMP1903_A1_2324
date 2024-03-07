@@ -15,7 +15,57 @@ namespace CMP1903_A1_2324
          * rolls could be continous, and the totals and other statistics could be summarised for example.
          */
 
+        Die dice = new Die();
+        Testing test = new Testing();
+
+        private List<int> rolls = new List<int>();
+
+        private string input;
+
+        public int total { get; private set; }
+
         //Methods
+
+        public int GamePlay()
+        {
+            bool continuePlaying = true;
+            rolls.Clear();
+            input = "y";
+
+            while (continuePlaying == true)
+            {
+                if (!(input.Equals("y") || input.Equals("Y") || input.Equals("n") || input.Equals("N")))
+                {
+                    Console.Write("Invalid Input! Enter Again (y/n): ");
+                    input = Console.ReadLine();
+                }
+                else
+                {
+                    if (input.Equals("y") || input.Equals("Y"))
+                    {
+                        rolls.Add(dice.roll());
+                        Console.Write("Would you like to roll again? (y/n): ");
+                        input = Console.ReadLine();
+                    }
+                    if (input.Equals("n") || input.Equals("N"))
+                    {
+                        continuePlaying = false;
+                    }
+
+                }
+
+            }
+
+            foreach (int i in rolls)
+            {
+                total += i;
+            }
+
+            test.testGame(rolls);
+
+            return total;
+
+        }
 
     }
 }

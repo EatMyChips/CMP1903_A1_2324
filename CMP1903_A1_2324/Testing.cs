@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,26 @@ namespace CMP1903_A1_2324
          */
 
         //Method
+
+        public void testDiceRoll(int roll)
+        {
+            Debug.Assert(roll <= 6 || roll >= 1, "roll is out of range");
+        }
+
+
+        public void testGame(List<int> rolls)
+        {
+            int total = 0;
+
+            foreach (int i in rolls) 
+            {
+                total += i;
+            }
+
+            Debug.Assert(total <= 6 * rolls.Count || total >= rolls.Count, "total is out of range");
+        }
+
+
+
     }
 }
