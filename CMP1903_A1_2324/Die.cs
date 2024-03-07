@@ -15,17 +15,20 @@ namespace CMP1903_A1_2324
 
         //Property
 
-        public int DiceRoll {get; private set;}
-
-        Testing test = new Testing();
+        public int DiceRoll { get; private set; }
+        private static Random _rand = new Random();
 
         //Method
 
+        /// <summary>
+        /// rolls a 6 sided dice
+        /// </summary>
+        /// <returns>
+        /// the rolled value
+        /// </returns>
         public int roll()
         {
-            Random rand = new Random();
-            DiceRoll = rand.Next(1, 7);
-            test.testDiceRoll(DiceRoll);
+            DiceRoll = _rand.Next(1, 7);
             Console.WriteLine("This roll gave: " + DiceRoll);
 
             return DiceRoll;

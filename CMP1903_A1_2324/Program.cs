@@ -8,6 +8,9 @@ namespace CMP1903_A1_2324
 {
     internal class Program
     {
+
+        private static Testing _test = new Testing();
+
         static void Main(string[] args)
         {
             /*
@@ -18,7 +21,16 @@ namespace CMP1903_A1_2324
             Game game = new Game();
 
             Console.WriteLine(game.GamePlay());
+            Console.Write("Press enter to run tests");
             Console.ReadLine();
+
+            _test.TestDiceRoll(1000);
+            _test.TestGame(1000);
+
+            Console.Write("Press enter to close");
+            Console.ReadLine();
+
+
         }
     }
 }
